@@ -48,6 +48,21 @@ class RomanNumeralsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($roman->generate(90), 'XC');
     }
 
+    public function testCanGenerateNumbersOneHunderToFourThousand()
+    {
+        $roman = new RomanNumerals();
+        $this->assertEquals($roman->generate(100), 'C');
+        $this->assertEquals($roman->generate(120), 'CXX');
+        $this->assertEquals($roman->generate(200), 'CC');
+        $this->assertEquals($roman->generate(300), 'CCC');
+        $this->assertEquals($roman->generate(400), 'CD');
+        $this->assertEquals($roman->generate(500), 'D');
+        $this->assertEquals($roman->generate(900), 'CM');
+        $this->assertEquals($roman->generate(1000), 'M');
+        $this->assertEquals($roman->generate(1240), 'MCCXL');
+        $this->assertEquals($roman->generate(3999), 'MMMCMXCIX');
+    }
+
 
 
 }
