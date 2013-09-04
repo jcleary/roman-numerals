@@ -1,0 +1,7 @@
+<phpunit bootstrap="libs/bootstrap.php">
+    <testsuites>
+        <testsuite name="Roman_Numerals">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
