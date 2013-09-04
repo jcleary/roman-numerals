@@ -1,16 +1,28 @@
 <?php
-
 require_once "RomanNumeralGenerator.php";
 
 
+/**
+ * Class RomanNumerals
+ *
+ * Can generate roman numbers for integers
+ *
+ * @author John Cleary
+ */
 class RomanNumerals implements RomanNumeralGenerator
 {
+    /**
+     * Generate a roman numeral from an integer
+     *
+     * @param $number
+     * @return string
+     */
     public function generate($number)
     {
-        assert(is_int($number));
+        assert(is_int($number) && $number >= 0 && $number <= 3999);
 
-        $translate = array(
-            4000 => 'M',
+        // array of decimal to roman number starting with largest first
+        $decimalToRoman = array(
             1000 => 'M',
             900 => 'CM',
             500 => 'D',
@@ -29,15 +41,17 @@ class RomanNumerals implements RomanNumeralGenerator
         );
 
         $remainder = $number;
-
         $answer = '';
 
+        // generating a roman numeral can be done by concatenating the numerals until they
+        // add up to the number we want. We have to start with the largest possible number (M = 1000)
+        // otherwise we would get a string if "I"s !
         while ($remainder > 0) {
-
-            foreach($translate as $dec => $roman) {
+            foreach($decimalToRoman as $dec => $roman) {
                 if ($remainder >= $dec) {
                     $answer .= $roman;
                     $remainder -= $dec;
+                    // have to break here as once we find a matching roman number we have to start at the top again
                     break;
                 }
             }

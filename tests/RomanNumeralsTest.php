@@ -2,6 +2,13 @@
 
 
 
+/**
+ * Class RomanNumeralsTest
+ *
+ * tests for the RomanNumerals class
+ *
+ * @author John Cleary
+ */
 class RomanNumeralsTest extends PHPUnit_Framework_TestCase
 {
 
@@ -48,7 +55,7 @@ class RomanNumeralsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($roman->generate(90), 'XC');
     }
 
-    public function testCanGenerateNumbersOneHunderToFourThousand()
+    public function testCanGenerateNumbersOneHundredToFourThousand()
     {
         $roman = new RomanNumerals();
         $this->assertEquals($roman->generate(100), 'C');
